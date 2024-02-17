@@ -1,0 +1,43 @@
+.page {
+    margin: 30px 0;
+    &-title {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--dark-grey);
+    }
+    &-wrap {
+        display: flex;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    &-list {
+        font-size: 14px;
+        color: var(--dark-grey);
+        font-weight: 500;
+        max-width: 230px;
+        width: 100%;
+        &__name {
+            border-top: 1px solid var(--border-grey);
+            &:last-child {
+                border-bottom: 1px solid var(--border-grey);
+            }
+            & a {
+                color: var(--dark-grey);
+                padding: 15px 20px 15px 10px;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                transition: background-color .3s ease;
+                &:hover {
+                    background-color: var(--theme-color);
+                    &, & i {
+                        color: #fff;
+                    }
+                }
+                & i {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
