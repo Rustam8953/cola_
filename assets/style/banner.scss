@@ -154,6 +154,34 @@
             background-color: var(--theme-color);
         }
     }
+    &-4 {
+        margin-bottom: 60px;
+        &-wrap {
+            display: flex;
+            gap: 30px;
+        }
+        &-items {
+            & i {
+                color: #fff;
+                font-size: 18px;
+                width: 40px;
+                height: 40px;
+                background-color: var(--theme-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            & li {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
 }
 
 .form {
@@ -202,6 +230,83 @@
                     top: -20px;
                     font-size: 10px;
                 }
+            }
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    .product {
+        margin-top: 35px;
+        &-item {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .product {
+        &-items {
+            grid-template-columns: repeat(1, 100%);
+        }
+    }
+    .col {
+        &-1 {
+            margin: 25px 0;
+        }
+        &-2 {
+            &-content {
+                padding: 30px 15px;
+            }
+            &-title {
+                font-size: 22px;
+            }
+        }
+        &-3 {
+            margin-top: 30px;
+            &-wrap {
+                flex-direction: column;
+                margin-top: 0;
+            }
+            &-r, &-l {
+                width: 100%;
+            }
+            &-r {
+                & p {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    .form {
+        padding-right: 0;
+        &-box {
+            grid-template-columns: repeat(1, 100%);
+            gap: 25px;
+        }
+        &-wrap {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+        &-item {
+            & input, & textarea {
+                padding: 15px 10px;
+                &:focus {
+                    & + span {
+                        top: -15px;
+                    }
+                }
+                &:not(:placeholder-shown) {
+                    & + span {
+                        top: -15px;
+                    }
+                }
+            }
+            & span {
+                top: 15px;
             }
         }
     }

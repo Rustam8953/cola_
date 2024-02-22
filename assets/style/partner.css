@@ -1,0 +1,22 @@
+.geo {
+  font-size: 13px;
+  line-height: 18px;
+}
+.geo-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--dark-grey);
+}
+.geo ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.geo ul li {
+  line-height: 22px;
+}
+.geo ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.geo ul li::marker {
+  color: var(--dark-grey);
+}

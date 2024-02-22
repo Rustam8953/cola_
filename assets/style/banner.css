@@ -151,6 +151,32 @@
   border-radius: 2px;
   background-color: var(--theme-color);
 }
+.col-4 {
+  margin-bottom: 60px;
+}
+.col-4-wrap {
+  display: flex;
+  gap: 30px;
+}
+.col-4-items i {
+  color: #fff;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--theme-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.col-4-items li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.col-4-items li:not(:last-child) {
+  margin-bottom: 15px;
+}
 
 .form {
   margin-top: 40px;
@@ -197,4 +223,64 @@
 .form-item input:focus + span, .form-item textarea:focus + span {
   top: -20px;
   font-size: 10px;
+}
+
+@media (max-width: 800px) {
+  .product {
+    margin-top: 35px;
+  }
+  .product-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .product-items {
+    grid-template-columns: repeat(1, 100%);
+  }
+  .col-1 {
+    margin: 25px 0;
+  }
+  .col-2-content {
+    padding: 30px 15px;
+  }
+  .col-2-title {
+    font-size: 22px;
+  }
+  .col-3 {
+    margin-top: 30px;
+  }
+  .col-3-wrap {
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .col-3-r, .col-3-l {
+    width: 100%;
+  }
+  .col-3-r p:last-child {
+    margin-bottom: 0;
+  }
+  .form {
+    padding-right: 0;
+  }
+  .form-box {
+    grid-template-columns: repeat(1, 100%);
+    gap: 25px;
+  }
+  .form-wrap {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  .form-item input, .form-item textarea {
+    padding: 15px 10px;
+  }
+  .form-item input:focus + span, .form-item textarea:focus + span {
+    top: -15px;
+  }
+  .form-item input:not(:placeholder-shown) + span, .form-item textarea:not(:placeholder-shown) + span {
+    top: -15px;
+  }
+  .form-item span {
+    top: 15px;
+  }
 }
