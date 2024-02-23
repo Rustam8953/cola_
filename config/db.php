@@ -1,13 +1,11 @@
 <?php
 
 class Database {
-    // укажите свои собственные учетные данные для базы данных
     private $host = "localhost";
     private $db_name = "cola_db";
     private $username = "root";
     private $password = "";
     public $conn;
-    // получение соединения с базой данных
     public function getConnection()
     {
         $this->conn = null;

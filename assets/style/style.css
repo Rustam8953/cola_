@@ -127,6 +127,9 @@ ul {
   font-weight: 600;
 }
 
+.nav {
+  height: 46px;
+}
 .nav-box {
   display: flex;
   align-items: center;

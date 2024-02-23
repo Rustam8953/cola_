@@ -87,6 +87,10 @@
   text-align: center;
   margin-bottom: 10px;
 }
+.page-item__img img {
+  max-width: 100%;
+  height: 150px;
+}
 .page-item__name {
   font-size: 13px;
   color: var(--dark-grey);
@@ -121,6 +125,17 @@
   color: #fff;
   background-color: var(--theme-color);
   border-color: var(--theme-color);
+}
+
+.product-none {
+  width: 100%;
+  background-color: var(--theme-dark-color);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 2px;
 }
 
 @media (max-width: 500px) {

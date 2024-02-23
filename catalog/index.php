@@ -15,10 +15,8 @@ $db = $database->getConnection();
 $product = new Product($db);
 $category = new Category($db);
 
-// запрос товаров
-$stmt = $product->readAll();
 $categotyList = $category->read();
-$num = $stmt->rowCount();;
+$num = null;
 
 //логика фильтра по категории товаров
 $url = $_SERVER['REQUEST_URI'];
@@ -66,26 +64,30 @@ if($url == '/catalog/') {
                     </ul>
                 </div>
                 <div class="page-content">
-                    <div class="page-content__box">
-                        <?php
-                            if ($num > 0) {
-                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row);
-                                    if($id_cat == $category_id) {
-                                        echo "<div class='page-item'>";
-                                            echo '<div class="page-item__img">';
-                                            echo "<img src='/assets/img/product/dc73063978e68480333f7fd85f3c445d.png' alt=''>";
-                                            echo "</div>";
-                                            echo "<a href='/product?id={$id}' class='page-item__name'>{$name}</a>";
-                                        echo "</div>";
-                                    }
-                                }
+                    <?php
+                        $stmt = $product->catProduct($id_cat);
+                        $num = $stmt->rowCount();
+                        if ($num > 0) {
+                            echo "<div class='page-content__box'>";
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                extract($row);
+                                echo "<div class='page-item'>";
+                                    echo '<div class="page-item__img">';
+                                        if($image !== "") {
+                                            echo "<img src='/static/{$image}.png' alt='' loading=lazy>";
+                                        } else {
+                                            echo 'lol';
+                                        }
+                                    echo "</div>";
+                                    echo "<a href='/product?id={$id}' class='page-item__name'>{$name}</a>";
+                                echo "</div>";
                             }
-                            else {
-                                echo "<div class='alert alert-info'>Товары не найдены.</div>";
-                            }
-                        ?>
-                    </div>
+                            echo "</div>";
+                        }
+                        else {
+                            echo "<div class='product-none'>Товары не найдены.</div>";
+                        }
+                    ?>
                     <div class="page-catalog__text">
                         <?php  
                             if($num > 0) {

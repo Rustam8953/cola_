@@ -8,6 +8,7 @@ class Product {
     public $id;
     public $name;
     public $logo;
+    public $image;
     public $description;
     public $category_id;
     public $timestamp;
@@ -48,10 +49,10 @@ class Product {
             return false;
         }
     }
-    // метод для получения товаров
+    // метод для получения всех товаров
     function readAll() {
         $query = "SELECT
-                    id, name, description, logo, category_id
+                    id, name, description, logo, image, category_id
                 FROM
                     " . $this->table_name . "
                 ORDER BY
@@ -62,9 +63,20 @@ class Product {
 
         return $stmt;
     }
+    //метод для вывода товаров по определенной категории
+    function catProduct($id_cat) {
+        $query = "SELECT * FROM 
+            products 
+            WHERE 
+            category_id = $id_cat";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
+    }
     // используется для пагинации товаров
-    public function countAll()
-    {
+    public function countAll() {
         $query = "SELECT id FROM " . $this->table_name . "";
 
         $stmt = $this->conn->prepare($query);
