@@ -121,7 +121,7 @@ require_once './component/header.php';
                                                 extract($row);
                                                 echo "<div class='col-1-item swiper-slide' id='{$id}'>";
                                                     echo '<a href="" class="col-1-item__img">';
-                                                    echo "<img src='../assets/img/product/dc73063978e68480333f7fd85f3c445d.png' alt=''>";
+                                                    echo "<img src='/static/{$image}.png' alt='' loading=lazy>";
                                                     echo "</a>";
                                                     echo "<a href='/product?id={$id}' class='col-1-item__name'>{$name}</a>";
                                                     echo "<p class='col-1-item__description'>{$description}</p>";

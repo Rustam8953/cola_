@@ -88,7 +88,7 @@ $categoryList = $category->read();
                                 </a>
                                 <ul class="dropdown-list">
                                     <li><a href="/partner/new" path>Стать партнером</a></li>
-                                    <li><a href="/partner/geo" path>Регионы присутствия</a></li>
+                                    <!-- <li><a href="/partner/geo" path>Регионы присутствия</a></li> -->
                                     <li><a href="/partner/rule" path>Условия сотрудничества</a></li>
                                     <li><a href="/partner/sertificate" path>Сертификаты</a></li>
                                     <li><a href="" path>Вопрос-ответ</a></li>
@@ -98,7 +98,7 @@ $categoryList = $category->read();
                                 <a href="/contact" class="nav-item__title">Контакты</a>
                             </li>
                         </ul>
-                        <form class="nav-input">
+                        <form class="nav-input" onsubmit="return false" name="form-search" id="form-search" method="post" >
                             <div class="nav-input__box">
                                 <div class="nav-search">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search" viewBox="0 0 16 16">
@@ -106,12 +106,10 @@ $categoryList = $category->read();
                                     </svg>
                                 </div>
                                 <div class="nav-input__item">
-                                    <input type="text" placeholder="Введите название товара">
+                                    <input type="text" placeholder="Введите название товара" name="seao" id="search-input">
                                 </div>
                             </div>
-                            <ul class="nav-input__value">
-                                <li><a href=""></a></li>
-                            </ul>
+                            <ul class="nav-input__value active"></ul>
                         </form>
                     </div>
                 </nav>

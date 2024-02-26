@@ -10,17 +10,11 @@
                             <ul>
                                 <li><a href="/company/about">О нас</a></li>
                                 <li><a href="/catalog">Каталог</a></li>
-                                <li><a href="">Каталог</a></li>
+                                <li><a href="">История</a></li>
                             </ul>
                             <ul>
-                                <li><a href="">О нас</a></li>
-                                <li><a href="">О нас</a></li>
-                                <li><a href="">О нас</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="">О нас</a></li>
-                                <li><a href="">О нас</a></li>
-                                <li><a href="">О нас</a></li>
+                                <li><a href="">Контакты</a></li>
+                                <li><a href="">Стать партнером</a></li>
                             </ul>
                         </div>
                         <ul class="footer-contact">

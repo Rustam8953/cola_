@@ -27,6 +27,16 @@ class Category
 
         return $stmt;
     }
+    function readOne($id_cat) {
+        $query = "SELECT * FROM
+            " . $this->table_name . "
+            WHERE
+            id = $id_cat";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
+    }
     // получение названия категории по её ID
     function readName() {
         $query = "SELECT name FROM " . $this->table_name . " WHERE id = ? limit 0,1";
@@ -34,7 +44,6 @@ class Category
         $stmt->bindParam(1, $this->id);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo $row;
         $this->name = $row["name"];
     }
 }?>

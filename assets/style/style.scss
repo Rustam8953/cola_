@@ -136,6 +136,7 @@ ul {
         justify-content: space-between;
     }
     &-input {
+        position: relative;
         &__box {
             display: flex;
             overflow: hidden;
@@ -157,9 +158,13 @@ ul {
         }
         &__value {
             background-color: var(--theme-dark-color);
-            padding: 40px;
             width: 300px;
+            margin-left: auto;
+            margin-right: 0;
             display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
         }
     }
     &-search {
@@ -173,11 +178,13 @@ ul {
     }
     &-list {
         display: flex;
+        height: 46px;
     }
     &-item {
         padding: 15px 20px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 11px;
+        height: 100%;
         transition: background-color .1s ease;
         &__title {
             display: flex;
@@ -185,9 +192,21 @@ ul {
             align-items: center;
             text-transform: uppercase;
             font-weight: 600;
+            position: relative;
             & svg {
                 width: 10px;
                 height: 10px;
+            }
+            &.active {
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background-color: var(--theme-color);
+                    position: absolute;
+                    left: -10px;
+                }
             }
         }
         & a {
@@ -238,12 +257,42 @@ ul {
                     align-items: center;
                     background-color: var(--theme-dark-color);
                 }
+                &__value {
+                    &.active {
+                        display: block;
+                    }
+                }
             }
             &-search {
                 background-color: var(--theme-color);
                 & svg {
                     fill: #fff;
                 }
+            }
+        }
+    }
+    &-product {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+        padding: 5px 0;
+        transition: all .3 ease;
+        & a {
+            color: #fff;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid #ececec4a;
+        }
+        &:first-child {
+            border-top: 1px solid #ececec4a;
+        }
+        &__img {
+            padding-left: 20px;
+            & img {
+                height: 40px;
             }
         }
     }
@@ -374,6 +423,36 @@ ul {
     }
 }
 
+.page {
+    &-nav {
+        font-size: 11px;
+        color: var(--light-grey);
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        & a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            &:not(:last-child) {
+                &::after {
+                    font-family: FontAwesome;
+                    content: "\f054";
+                    color: var(--light-grey);
+                    font-size: 8px;
+                }
+            }
+            &:last-child {
+                color: var(--theme-color);
+            }
+            &:hover {
+                color: var(--theme-color);
+            }
+        }
+    }
+}
+
 @media(max-width: 500px) {
     .header {
         position: fixed;
@@ -451,7 +530,7 @@ ul {
                 font-weight: 600;
                 height: auto;
             }
-            &:focus {
+            &:active {
                 background-color: var(--theme-color);
                 & a {
                     color: #fff;
@@ -556,7 +635,15 @@ ul {
                     & svg {
                         fill: #fff;
                     }
+                    &::before {
+                        background-color: #fff;
+                    }
                 }
+            }
+        }
+        &-product {
+            &:hover {
+                background-color: var(--theme-color);
             }
         }
     }

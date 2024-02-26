@@ -54,6 +54,9 @@
   display: block;
   margin-bottom: 15px;
 }
+.col-1-item__img img {
+  height: 200px;
+}
 .col-1-item__name {
   font-size: 15px;
   color: var(--theme-color);

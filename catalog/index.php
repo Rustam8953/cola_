@@ -35,7 +35,6 @@ $host = $_SERVER['HTTP_HOST'];
 if($url == '/catalog/') {
     ?>
     <script>
-        console.log(window.location.host)
         window.location.href = `http://${window.location.host}catalog/gaz`;
     </script>
     <?php
@@ -45,6 +44,10 @@ if($url == '/catalog/') {
 <main class="main">
     <div class="page">
         <div class="page-box box">
+            <div class="page-nav">
+                <a href="/">Главная</a>
+                <a href="/catalog">Каталог</a>
+            </div>
             <h1 class="page-title"><?php echo $catTitle ?></h1>
             <div class="page-wrap">
                 <div class="page-menu">

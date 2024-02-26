@@ -54,6 +54,9 @@
                 margin: 0 auto;
                 display: block;
                 margin-bottom: 15px;
+                & img {
+                    height: 200px;
+                }
             }
             &__name {
                 font-size: 15px;

@@ -1,9 +1,9 @@
 <?php
 
 class Product {
-    // подключение к базе данных
     private $conn;
     private $table_name = "products";
+    private $table_info = "product_info";
 
     public $id;
     public $name;
@@ -66,7 +66,7 @@ class Product {
     //метод для вывода товаров по определенной категории
     function catProduct($id_cat) {
         $query = "SELECT * FROM 
-            products 
+            " . $this->table_name . "
             WHERE 
             category_id = $id_cat";
 
@@ -86,10 +86,22 @@ class Product {
 
         return $num;
     }
+    //Метод для поиска значений из таблицы инфо исходя из id обьекта
+    function productInfoSearch($id_info) {
+        $query = "SELECT * FROM 
+            " . $this->table_info . "
+            WHERE 
+            product_id = $id_info";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
+    }
     // метод для получения одного товара
     function readOne() {
         $query = "SELECT
-                    name, logo, description, category_id
+                    name, description, logo, image, category_id
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -106,6 +118,7 @@ class Product {
         $this->name = $row["name"];
         $this->logo = $row["logo"];
         $this->description = $row["description"];
+        $this->image = $row["image"];
         $this->category_id = $row["category_id"];
     }
     // метод для обновления товара
@@ -143,5 +156,53 @@ class Product {
         }
 
         return false;
+    }
+    // выбираем товары по поисковому запросу
+    public function search($search_term) {
+        $query = "SELECT
+                c.name as category_name, p.id, p.name, p.description, p.image, p.category_id, p.created
+            FROM
+                " . $this->table_name . " p
+                LEFT JOIN
+                    categories c
+                        ON p.category_id = c.id
+            WHERE
+                p.name LIKE ? OR p.description LIKE ?
+            ORDER BY
+                p.name ASC";
+
+        $stmt = $this->conn->prepare($query);
+
+        $search_term = "%{$search_term}%";
+        $stmt->bindParam(1, $search_term);
+        $stmt->bindParam(2, $search_term);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+    // метод для подсчёта общего количества строк
+    public function countAll_BySearch($search_term)
+    {
+        // запрос
+        $query = "SELECT
+                COUNT(*) as total_rows
+            FROM
+                " . $this->table_name . " p 
+            WHERE
+                p.name LIKE ? OR p.description LIKE ?";
+
+        // подготовка запроса
+        $stmt = $this->conn->prepare($query);
+
+        // привязка значений
+        $search_term = "%{$search_term}%";
+        $stmt->bindParam(1, $search_term);
+        $stmt->bindParam(2, $search_term);
+
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row["total_rows"];
     }
 }
