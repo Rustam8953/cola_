@@ -1,9 +1,29 @@
 .banner {
   height: 400px;
   width: 100%;
-  background-image: url("../img/banner/5e1994714a7d5a28b7e093a8acbb747f.png");
+  background-image: url("../img/banner/1669708096_3-39.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.banner-box {
+  width: 100%;
+}
+.banner-content {
+  font-size: 64px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 86px;
+}
+.banner-logo {
+  padding: 0px 20px;
+  border: 2px solid var(--theme-dark-color);
+  display: inline-block;
+  color: var(--theme-color);
+  background-color: #fff;
 }
 
 .product {
@@ -164,8 +184,8 @@
 .col-4-items i {
   color: #fff;
   font-size: 18px;
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   background-color: var(--theme-color);
   border-radius: 50%;
   display: flex;
@@ -175,57 +195,15 @@
 .col-4-items li {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+  font-size: 13px;
+  font-weight: 500;
 }
 .col-4-items li:not(:last-child) {
   margin-bottom: 15px;
 }
-
-.form {
-  margin-top: 40px;
-  padding-right: 50px;
-}
-.form-box {
-  display: grid;
-  grid-template-columns: repeat(3, 32%);
-  justify-content: space-between;
-}
-.form-wrap {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.form-item {
-  position: relative;
-}
-.form-item input {
-  display: block;
-  background-color: #fff;
-}
-.form-item span {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  font-size: 12px;
-  pointer-events: none;
-  transition: top 0.3s ease;
-}
-.form-item textarea {
-  resize: none;
-  height: 100px;
-}
-.form-item input, .form-item textarea {
-  width: 100%;
-  border-radius: 2px;
-  padding: 10px;
-  font-family: "Montserrat", sans-serif;
-}
-.form-item input:not(:placeholder-shown) + span, .form-item textarea:not(:placeholder-shown) + span {
-  top: -20px;
-  font-size: 10px;
-}
-.form-item input:focus + span, .form-item textarea:focus + span {
-  top: -20px;
-  font-size: 10px;
+.col-4-items a {
+  color: var(--dark-grey);
 }
 
 @media (max-width: 800px) {
@@ -238,6 +216,13 @@
   }
 }
 @media (max-width: 500px) {
+  .banner {
+    height: 300px;
+  }
+  .banner-content {
+    font-size: 36px;
+    line-height: 42px;
+  }
   .product-items {
     grid-template-columns: repeat(1, 100%);
   }
@@ -285,5 +270,8 @@
   }
   .form-item span {
     top: 15px;
+  }
+  .contact-l {
+    flex-direction: column-reverse;
   }
 }

@@ -42,7 +42,7 @@ include_once dirname(__DIR__) . '/component/header.php';
         <div class="page-box box">
             <div class="page-nav">
                 <a href="/" class="page-nav__item">Главная</a>
-                <a href="/catalog" class="page-nav__item">Каталог</a>
+                <span onclick="history.back()" class="page-nav__item">Каталог</span>
                 <?php
                     echo "<a href='/product/?id={$product->id}' class='page-nav__item'>$product->name</a>";
                 ?>
@@ -66,8 +66,11 @@ include_once dirname(__DIR__) . '/component/header.php';
                     </ul>
                 </div>
                 <div class="product-r">
-                    <div class="product-l__box">
-                        <img src="/static/<?php echo $product->image?>.png" alt="" loading="lazy">
+                    <div class="product-head">
+                        <div class="product-l__box">
+                            <img src="/static/<?php echo $product->image?>" alt="" loading="lazy">
+                        </div>
+                        <div class="product-info"></div>
                     </div>
                     <div class="product-item">
                         <h2>Характеристика</h2>

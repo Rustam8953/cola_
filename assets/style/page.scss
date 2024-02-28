@@ -1,9 +1,12 @@
 .page {
-    margin: 30px 0;
+    margin: 0px 0 50px;
     &-title {
         font-size: 26px;
         font-weight: 600;
         color: var(--dark-grey);
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--theme-color);
+        display: inline-block;
     }
     &-wrap {
         display: flex;
@@ -21,10 +24,12 @@
         font-weight: 500;
         width: 100%;
         position: sticky;
-        top: 20px;
+        top:80px;
         left: 0;
         &__name {
             border-top: 1px solid var(--border-grey);
+            font-size: 13px;
+            font-weight: 500;
             &:last-child {
                 border-bottom: 1px solid var(--border-grey);
             }
@@ -91,6 +96,7 @@
         }
         &__name {
             font-size: 13px;
+            font-weight: 500;
             color: var(--dark-grey);
             &:hover {
                 color: var(--theme-color);
@@ -153,9 +159,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             border-radius: 2px;
+            width: 60%;
             border: 1px solid var(--border-grey);
+            & img {
+                max-width: 100%;
+            }
         }
     }
     &-r {
@@ -202,6 +212,10 @@
             }
         }
     }
+    &-head {
+        display: flex;
+        gap: 20px;
+    }
 }
 
 @media(max-width: 500px) {
@@ -221,7 +235,8 @@
     .page {
         &-content {
             &__box {
-                grid-template-columns: repeat(1, 100%);
+                grid-template-columns: repeat(2, 49%);
+                gap: 15px;
             }
         }
     }

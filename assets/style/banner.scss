@@ -1,9 +1,29 @@
 .banner {
     height: 400px;
     width: 100%;
-    background-image: url('../img/banner/5e1994714a7d5a28b7e093a8acbb747f.png');
+    background-image: url('../img/banner/1669708096_3-39.jpg');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &-box {
+        width: 100%;
+    }
+    &-content {
+        font-size: 64px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 86px;
+    }
+    &-logo {
+        padding: 0px 20px;
+        border: 2px solid var(--theme-dark-color);
+        display: inline-block;
+        color: var(--theme-color);
+        background-color: #fff;
+    }
 }
 
 .product {
@@ -167,8 +187,8 @@
             & i {
                 color: #fff;
                 font-size: 18px;
-                width: 40px;
-                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
                 background-color: var(--theme-color);
                 border-radius: 50%;
                 display: flex;
@@ -178,61 +198,15 @@
             & li {
                 display: flex;
                 align-items: center;
-                gap: 20px;
+                gap: 15px;
+                font-size: 13px;
+                font-weight: 500;
                 &:not(:last-child) {
                     margin-bottom: 15px;
                 }
             }
-        }
-    }
-}
-
-.form {
-    margin-top: 40px;
-    padding-right: 50px;
-    &-box {
-        display: grid;
-        grid-template-columns: repeat(3, 32%);
-        justify-content: space-between;
-    }
-    &-wrap {
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    &-item {
-        position: relative;
-        & input {
-            display: block;
-            background-color: #fff;
-        }
-        & span {
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            font-size: 12px;
-            pointer-events: none;
-            transition: top .3s ease;
-        }
-        & textarea {
-            resize: none;
-            height: 100px;
-        }
-        & input, & textarea {
-            width: 100%;
-            border-radius: 2px;
-            padding: 10px;
-            font-family: "Montserrat", sans-serif;
-            &:not(:placeholder-shown) {
-                & + span {
-                    top: -20px;
-                    font-size: 10px;
-                }
-            }
-            &:focus {
-                & + span {
-                    top: -20px;
-                    font-size: 10px;
-                }
+            & a {
+                color: var(--dark-grey);
             }
         }
     }
@@ -249,6 +223,13 @@
 }
 
 @media(max-width: 500px) {
+    .banner {
+        height: 300px;
+        &-content {
+            font-size: 36px;
+            line-height: 42px;
+        }
+    }
     .product {
         &-items {
             grid-template-columns: repeat(1, 100%);
@@ -311,6 +292,11 @@
             & span {
                 top: 15px;
             }
+        }
+    }
+    .contact {
+        &-l {
+            flex-direction: column-reverse;
         }
     }
 }

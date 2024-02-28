@@ -77,7 +77,7 @@ if($url == '/catalog/') {
                                 echo "<div class='page-item'>";
                                     echo '<div class="page-item__img">';
                                         if($image !== "") {
-                                            echo "<img src='/static/{$image}.png' alt='' loading=lazy>";
+                                            echo "<img src='/static/{$image}' alt='' loading=lazy>";
                                         } else {
                                             echo 'lol';
                                         }

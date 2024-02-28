@@ -9,6 +9,9 @@
         <a href='/partner/rule' class='product-cat' path>Условия сотрудничества</a>
     </li>
     <li class='page-list__name'>
-        <a href='/partner/sertificate' class='product-cat' path>Сертификаты</a>
+        <a href='/partner/docs' class='product-cat' path>Документы</a>
     </li>
+    <!-- <li class='page-list__name'>
+        <a href='/partner/quest' class='product-cat' path>Вопрос-ответ</a>
+    </li> -->
 </ul>

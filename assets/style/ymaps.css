@@ -1,8 +1,9 @@
 #map {
   width: 60%;
-  height: 400px;
+  height: 300px;
   border-radius: 5px;
   overflow: hidden;
+  border: 1px solid var(--border-grey);
 }
 
 @media (max-width: 500px) {

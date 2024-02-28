@@ -23,23 +23,25 @@ class Product {
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    name=:name, logo=:logo, description=:description, category_id=:category_id, created=:created";
+                    id=:id, name=:name, description=:description, image=:image, category_id=:category_id, created=:created";
 
         $stmt = $this->conn->prepare($query);
 
         // опубликованные значения
+        $this->id = htmlspecialchars(strip_tags($this->id));
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->logo = htmlspecialchars(strip_tags($this->logo));
         $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->image = htmlspecialchars(strip_tags($this->image));
         $this->category_id = htmlspecialchars(strip_tags($this->category_id));
 
         // получаем время создания записи
         $this->timestamp = date("Y-m-d H:i:s");
 
         // привязываем значения
+        $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":name", $this->name);
-        $stmt->bindParam(":logo", $this->price);
         $stmt->bindParam(":description", $this->description);
+        $stmt->bindParam(":image", $this->image);
         $stmt->bindParam(":category_id", $this->category_id);
         $stmt->bindParam(":created", $this->timestamp);
 
@@ -182,8 +184,7 @@ class Product {
         return $stmt;
     }
     // метод для подсчёта общего количества строк
-    public function countAll_BySearch($search_term)
-    {
+    public function countAll_BySearch($search_term) {
         // запрос
         $query = "SELECT
                 COUNT(*) as total_rows
@@ -204,5 +205,65 @@ class Product {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $row["total_rows"];
+    }
+    // загрузка файла изображения на сервер
+    function uploadPhoto() {
+        $result_message = "";
+
+        if ($this->image) {
+            $target_directory = dirname(__DIR__) . "/static/";
+            $target_file = $target_directory . $this->image;
+            $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+
+            $file_upload_error_messages = "";
+        } else {
+            return false;
+        }
+
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+
+        if ($check == false) {
+            $file_upload_error_messages .= "<div>Отправленный файл не является изображением.</div>";
+            return false;
+        }
+
+        $allowed_file_types = array("jpg", "jpeg", "png", "gif");
+
+        if (!in_array($file_type, $allowed_file_types)) {
+            $file_upload_error_messages .= "<div>Разрешены только файлы JPG, JPEG, PNG, GIF.</div>";
+            return false;
+        }
+
+        if (file_exists($target_file)) {
+            $file_upload_error_messages .= "<div>Изображение уже существует. Попробуйте изменить имя файла.</div>";
+        }
+
+        if ($_FILES["image"]["size"] > (1024000)) {
+            $file_upload_error_messages .= "<div>Размер изображения не должен превышать 1 МБ.</div>";
+        }
+
+        if (!is_dir($target_directory)) {
+            mkdir($target_directory, 0777, true);
+        }
+
+        if (empty($file_upload_error_messages)) {
+
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            } else {
+                $result_message .= "<div class='alert alert-danger'>";
+                    $result_message .= "<div>Невозможно загрузить фото.</div>";
+                    $result_message .= "<div>Обновите запись, чтобы загрузить фото снова.</div>";
+                $result_message .= "</div>";
+            }
+        }
+
+        else {
+            $result_message .= "<div class='alert alert-danger'>";
+                $result_message .= "{$file_upload_error_messages}";
+                $result_message .= "<div>Обновите запись, чтобы загрузить фото.</div>";
+            $result_message .= "</div>";
+        }
+
+        return $result_message;
     }
 }

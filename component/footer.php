@@ -9,25 +9,27 @@
                         <div class="footer-list">
                             <ul>
                                 <li><a href="/company/about">О нас</a></li>
-                                <li><a href="/catalog">Каталог</a></li>
-                                <li><a href="">История</a></li>
+                                <li><a href="/catalog/vkusno">Каталог</a></li>
+                                <li><a href="/company/history">История</a></li>
                             </ul>
                             <ul>
-                                <li><a href="">Контакты</a></li>
-                                <li><a href="">Стать партнером</a></li>
+                                <li><a href="/contact">Контакты</a></li>
+                                <li><a href="/partner/new">Стать партнером</a></li>
                             </ul>
                         </div>
                         <ul class="footer-contact">
                             <li class="footer-contact__item">
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <p><span>+7 (953)</span> 784 58 40</p>
+                                    <p><span>+7-913</span>-006-00-37</p>
+                                    
+
                                 </a>
                             </li>
                             <li class="footer-contact__item mail">
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p>vkusno@gmail.com</p>
+                                    <p>wkysno_wf@mail.ru</p>
                                 </a>
                             </li>
                         </ul>

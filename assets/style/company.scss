@@ -61,3 +61,26 @@
         font-weight: 600;
     }
 }
+
+@media(max-width: 800px) {
+    .docs {
+        &-list {
+            & li {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        &-title {
+            width: 100%;
+        }
+    }
+    .history {
+        &-value {
+            padding: 15px;
+        }
+        &-date {
+            padding: 0 15px;
+            font-size: 24px;
+        }
+    }
+}

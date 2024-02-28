@@ -8,49 +8,36 @@
 <main class="main">
     <div class="contact">
         <div class="contact-box box">
+            <div class="page-nav">
+                <a href="/">Главная</a>
+                <a href="/contact">Контакты</a>
+            </div>
             <div class="contact-wrap">
                 <h1 class="contact-title">Контакты</h1>
                 <div class="contact-l">
                     <div class="" id="map"></div>
+                    <ul class="col-4-items">
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <a href="https://yandex.ru/maps/-/CDFYED3G">Новосибирская область, р.п. Кольцово, АБК, корп. 4</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <a href="mailto: ">+7(913)006-00-37</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto: ">wkusno_wf@mail.ru</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <section class="col-2">
-            <div class="col-2-box box">
-                <div class="col-2-content">
-                    <div class="col-2-l">
-                        <p class="col-2-title">Консультация по подбору товаров</p>
-                        <p class="col-2-text">Получите индивидуальное коммерческое предложение, оставиви заявку на консультацию</p>
-                    </div>
-                    <form onsubmit="return false;" class="form">
-                        <div class="form-box">
-                            <div class="form-item">
-                                <input type="text" name="username" id="username" autocomplete="none" placeholder=" ">
-                                <span>Имя</span>
-                            </div>
-                            <div class="form-item">
-                                <input type="text" name="tel" id="tel" autocomplete="none" placeholder=" ">
-                                <span>Телефон</span>
-                            </div>
-                            <div class="form-item">
-                                <input type="text" name="mail" id="mail" autocomplete="none" placeholder=" ">
-                                <span>Email</span>
-                            </div>
-                        </div>
-                        <div class="form-wrap">
-                            <div class="form-item">
-                                <textarea type="text" name="description" id="description" placeholder=" "></textarea>
-                                <span>Сообщение</span>
-                            </div>
-                        </div>
-                        <button type="submit" mes-form>задать вопрос</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+        <?php include_once dirname(__DIR__) . '/form.php' ?>
+        <?php include_once dirname(__DIR__) . '/component/btnTop.php' ?>
     </div>
 </main>
-<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=90aaac62-16fd-45a5-ad18-c9ff9afbc746" type="text/javascript"></script>
 <script src="/assets/script/ymaps.js"></script>
 
 <?php

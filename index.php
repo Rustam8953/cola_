@@ -17,12 +17,31 @@ require_once './component/header.php';
     <link rel="stylesheet" href="../assets/libs/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/style/banner.css">
     <link rel="stylesheet" href="./assets/style/ymaps.css">
+    <link rel="stylesheet" href="./assets/style/contact.css">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "ВКУСНО!",
+          "url": "https://wkusno-nsk.ru",
+          "logo": "/assets/img/logo/logo-ball.svg",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "",
+            "contactType": "Консультация",
+            "areaServed": "RU",
+            "availableLanguage": "Russian"
+          },
+          "sameAs": "https://wkusno-nsk.ru"
+        }
+    </script>
     <main class="main">
         <div class="main-wrap">
             <section class="banner">
-                <div class="banner-box">
+                <div class="banner-box box">
                     <div class="banner-content">
-
+                        <div class="banner-text">Встречаем лето с</div>
+                        <div class="banner-logo">ВКУСНО!</div>
                     </div>
                 </div>
             </section>
@@ -120,8 +139,8 @@ require_once './component/header.php';
                                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                                 extract($row);
                                                 echo "<div class='col-1-item swiper-slide' id='{$id}'>";
-                                                    echo '<a href="" class="col-1-item__img">';
-                                                    echo "<img src='/static/{$image}.png' alt='' loading=lazy>";
+                                                    echo "<a href='/product/?id={$id}' class='col-1-item__img'>";
+                                                    echo "<img src='/static/{$image}' alt='' loading=lazy>";
                                                     echo "</a>";
                                                     echo "<a href='/product?id={$id}' class='col-1-item__name'>{$name}</a>";
                                                     echo "<p class='col-1-item__description'>{$description}</p>";
@@ -143,64 +162,32 @@ require_once './component/header.php';
                 <div class="col-4-box box">
                     <div class="col-4-content">
                         <h3 class="section-title">Контакты</h3>
-                        <div class="col-4-wrap">
-                            <div id="map"></div>
+                        <div class="contact-l">
+                            <div class="" id="map"></div>
                             <ul class="col-4-items">
                                 <li>
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <a href="mailto: ">vkusno@mail.ru</a>
+                                    <a href="mailto: ">Новосибирская область, р.п. Кольцово, АБК, корп. 4</a>
                                 </li>
                                 <li>
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <a href="mailto: ">vkusno@mail.ru</a>
+                                    <a href="mailto: ">+7(913)006-00-37</a>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <a href="mailto: ">vkusno@mail.ru</a>
+                                    <a href="mailto: ">wkusno_wf@mail.ru</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="col-2">
-                <div class="col-2-box box">
-                    <div class="col-2-content">
-                        <div class="col-2-l">
-                            <p class="col-2-title">Консультация по подбору товаров</p>
-                            <p class="col-2-text">Получите индивидуальное коммерческое предложение, оставиви заявку на консультацию</p>
-                        </div>
-                        <form onsubmit="return false;" class="form">
-                            <div class="form-box">
-                                <div class="form-item">
-                                    <input type="text" name="username" id="username" autocomplete="none" placeholder=" ">
-                                    <span>Имя</span>
-                                </div>
-                                <div class="form-item">
-                                    <input type="text" name="tel" id="tel" autocomplete="none" placeholder=" ">
-                                    <span>Телефон</span>
-                                </div>
-                                <div class="form-item">
-                                    <input type="text" name="mail" id="mail" autocomplete="none" placeholder=" ">
-                                    <span>Email</span>
-                                </div>
-                            </div>
-                            <div class="form-wrap">
-                                <div class="form-item">
-                                    <textarea type="text" name="description" id="description" placeholder=" "></textarea>
-                                    <span>Сообщение</span>
-                                </div>
-                            </div>
-                            <button type="submit" mes-form>задать вопрос</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
+            <?php include './form.php' ?>
             <?php include './component/btnTop.php' ?>
         </div>
     </main>
     <script src="./assets/libs/swiper/swiper-bundle.min.js"></script>
-    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=90aaac62-16fd-45a5-ad18-c9ff9afbc746" type="text/javascript"></script>
     <script src="./assets/script/ymaps.js"></script>
     <script>
         new Swiper('.col-1-items', {

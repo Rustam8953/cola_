@@ -20,3 +20,60 @@
 .geo ul li::marker {
   color: var(--dark-grey);
 }
+
+.partner {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--dark-grey);
+}
+.partner-new h3 {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.partner-new .m-btm {
+  margin-bottom: 20px;
+}
+.partner-new ul {
+  list-style-type: disc;
+  padding-left: 17px;
+}
+
+.rule-item__title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.rule ul {
+  margin-top: 30px;
+}
+.rule li:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.d-item {
+  border: 1px solid var(--border-grey);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+.d-item a {
+  display: inline-block;
+}
+.d-item a img {
+  height: 50px;
+  vertical-align: top;
+}
+.d-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .d-item:hover {
+    border: 1px solid var(--theme-color);
+    color: var(--theme-color);
+  }
+}
