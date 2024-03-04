@@ -1,19 +1,27 @@
 .page {
+<<<<<<< HEAD
   margin: 0px 0 50px;
+=======
+  margin: 30px 0;
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
 }
 .page-title {
   font-size: 26px;
   font-weight: 600;
   color: var(--dark-grey);
+<<<<<<< HEAD
   padding-bottom: 5px;
   border-bottom: 2px solid var(--theme-color);
   display: inline-block;
+=======
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
 }
 .page-wrap {
   display: flex;
   margin-top: 20px;
   gap: 20px;
 }
+<<<<<<< HEAD
 .page-menu {
   width: 100%;
   max-width: 230px;
@@ -32,6 +40,17 @@
   border-top: 1px solid var(--border-grey);
   font-size: 13px;
   font-weight: 500;
+=======
+.page-list {
+  font-size: 14px;
+  color: var(--dark-grey);
+  font-weight: 500;
+  max-width: 230px;
+  width: 100%;
+}
+.page-list__name {
+  border-top: 1px solid var(--border-grey);
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
 }
 .page-list__name:last-child {
   border-bottom: 1px solid var(--border-grey);
@@ -45,13 +64,18 @@
   transition: background-color 0.3s ease;
 }
 .page-list__name a:hover {
+<<<<<<< HEAD
   background-color: var(--theme-dark-color);
+=======
+  background-color: var(--theme-color);
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
 }
 .page-list__name a:hover, .page-list__name a:hover i {
   color: #fff;
 }
 .page-list__name a i {
   font-size: 12px;
+<<<<<<< HEAD
 }
 .page-list__name a.active {
   background-color: var(--theme-color);
@@ -291,4 +315,6 @@
     grid-template-columns: repeat(2, 48%);
     gap: 15px;
   }
+=======
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
 }

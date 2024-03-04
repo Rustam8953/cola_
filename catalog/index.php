@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 // здесь будет получение товаров из БД
 // включаем соединение с БД и файлы с объектами
@@ -108,3 +109,53 @@ if($url == '/catalog/') {
 </main>
 <script src="/assets/script/catalog.js?<?php echo date('d:m:y:H:i:s'); ?>"></script>
 <?php include dirname(__DIR__) . '/component/footer.php' ?>
+=======
+<div class="page">
+    <div class="page-box box">
+        <h1 class="page-title">Каталог</h1>
+        <div class="page-wrap">
+            <ul class="page-list">
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="page-list__name">
+                    <a href="">
+                        Газированные напитки
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="page-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406

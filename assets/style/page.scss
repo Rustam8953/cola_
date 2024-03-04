@@ -1,18 +1,26 @@
 .page {
+<<<<<<< HEAD
     margin: 0px 0 50px;
+=======
+    margin: 30px 0;
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
     &-title {
         font-size: 26px;
         font-weight: 600;
         color: var(--dark-grey);
+<<<<<<< HEAD
         padding-bottom: 5px;
         border-bottom: 2px solid var(--theme-color);
         display: inline-block;
+=======
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
     }
     &-wrap {
         display: flex;
         margin-top: 20px;
         gap: 20px;
     }
+<<<<<<< HEAD
     &-menu {
         width: 100%;
         max-width: 230px;
@@ -30,6 +38,16 @@
             border-top: 1px solid var(--border-grey);
             font-size: 13px;
             font-weight: 500;
+=======
+    &-list {
+        font-size: 14px;
+        color: var(--dark-grey);
+        font-weight: 500;
+        max-width: 230px;
+        width: 100%;
+        &__name {
+            border-top: 1px solid var(--border-grey);
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
             &:last-child {
                 border-bottom: 1px solid var(--border-grey);
             }
@@ -41,7 +59,11 @@
                 align-items: center;
                 transition: background-color .3s ease;
                 &:hover {
+<<<<<<< HEAD
                     background-color: var(--theme-dark-color);
+=======
+                    background-color: var(--theme-color);
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
                     &, & i {
                         color: #fff;
                     }
@@ -49,6 +71,7 @@
                 & i {
                     font-size: 12px;
                 }
+<<<<<<< HEAD
                 &.active {
                     background-color: var(--theme-color);
                     color: #fff;
@@ -242,6 +265,8 @@
             &__box {
                 grid-template-columns: repeat(2, 49%);
                 gap: 15px;
+=======
+>>>>>>> dd3f67d44152042ebd2d4283ebe672e0da386406
             }
         }
     }
