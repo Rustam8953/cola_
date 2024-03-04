@@ -41,14 +41,12 @@ require_once dirname(__DIR__) . "/component/header.php";
                     $name_arr[] = $val;
                     $description_arr[] = $descriptions[$key];
                 }
-                if(count($names) > 0) {
                     $info->name = $name_arr;
                     $info->description = $description_arr;
                     $info->product_id = $runNum;
                     if($info->create()) {
                         echo "Успешно добавлены характеристики";
                     }
-                }
 
                 if ($product->create()) {
                     echo '<div class="alert alert-success">Товар был успешно создан.</div>';

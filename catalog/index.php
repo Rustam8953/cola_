@@ -29,7 +29,7 @@ $descri_cat_text = '';
 $catTitle = "Каталог";
 
 $page_title="Каталог";
-require_once dirname(__DIR__) .'../component/header.php';
+require_once dirname(__DIR__) .'/component/header.php';
 
 $host = $_SERVER['HTTP_HOST'];
 if($url == '/catalog/') {
@@ -40,7 +40,7 @@ if($url == '/catalog/') {
     <?php
 }
 ?>
-<link rel="stylesheet" href="/assets/style/page.css">
+<link rel="stylesheet" href="/assets/style/page.css?<?php echo date('d:m:y:H:i:s'); ?>">
 <main class="main">
     <div class="page">
         <div class="page-box box">
@@ -79,7 +79,7 @@ if($url == '/catalog/') {
                                         if($image !== "") {
                                             echo "<img src='/static/{$image}' alt='' loading=lazy>";
                                         } else {
-                                            echo 'lol';
+                                            echo "<img src='/assets/img/logo/none2.png' style='max-width: 200px;' alt='' loading=lazy>";
                                         }
                                     echo "</div>";
                                     echo "<a href='/product?id={$id}' class='page-item__name'>{$name}</a>";
@@ -106,5 +106,5 @@ if($url == '/catalog/') {
     </div>
     <?php include dirname(__DIR__) . '/component/btnTop.php'; ?>
 </main>
-<script src="/assets/script/catalog.js"></script>
-<?php include dirname(__DIR__) . '../component/footer.php' ?>
+<script src="/assets/script/catalog.js?<?php echo date('d:m:y:H:i:s'); ?>"></script>
+<?php include dirname(__DIR__) . '/component/footer.php' ?>

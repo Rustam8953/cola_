@@ -1,0 +1,2 @@
+AddDefaultCharset UTF-8
+PHP_VALUE default_charset UTF-8

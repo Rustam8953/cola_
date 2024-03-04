@@ -4,7 +4,7 @@
                 <div class="footer-box box">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <a href="#" class="logo">LOGO</a>
+                            <a href="#" class="logo">ВКУСНО!</a>
                         </div>
                         <div class="footer-list">
                             <ul>
@@ -37,11 +37,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-box box"><p>2008 - 2024 © ООО «ПО Запсибкола»</p></div>
+                <div class="footer-box box"><p>2008 - 2024 © ООО «ВКУСНО»</p></div>
             </div>
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/f84af15626.js" crossorigin="anonymous"></script>
-    <script src="/assets/script/index.js"></script>
+    <script src="/assets/script/index.js?<?php echo date('H:i:s'); ?>"></script>
 </body>
 </html>

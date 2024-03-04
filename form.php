@@ -5,7 +5,7 @@
                 <p class="col-2-title">Консультация по подбору продукции</p>
                 <p class="col-2-text">Получите индивидуальное коммерческое предложение, оставив заявку на консультацию</p>
             </div>
-            <form class="form" name="form-cons" id="form-cons">
+            <form action="/formSend.php" class="form" name="form-cons" id="form-cons">
                 <div class="form-box">
                     <div class="form-item">
                         <input type="text" required name="username" id="username" autocomplete="none" placeholder=" ">

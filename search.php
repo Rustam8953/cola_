@@ -15,8 +15,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $input_name = $data["dataName"];
 
 if ($input_name) {
-    $input_val = $input_name;
-    $stmt = $product->search($input_val);
+    $stmt = $product->search($input_name);
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $arr[] = $row;
     }

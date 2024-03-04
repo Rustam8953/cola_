@@ -4,6 +4,7 @@ const topArrowBtn = document.querySelector('.arrow');
 const inputVal = document.querySelector('.nav-input__value');
 const headerBurger = document.querySelector('.header-burger');
 const header = document.querySelector('.header');
+const navItem = document.querySelectorAll('.nav-item');
 let search = false;
 const searchBox = (el, bool) => {
     return bool == true ? el.classList.add('active')
@@ -11,6 +12,7 @@ const searchBox = (el, bool) => {
 }
 let menu = false;
 let modal = false;
+let productModalState = false;
 headerFix();
 
 window.addEventListener('click', i => {
@@ -41,6 +43,18 @@ window.addEventListener('click', i => {
         menu = !menu;
         menuLogic(menu, nav, 'active-mobile');
     }
+    if(i.target.closest('[modal-product]')) {
+        productModalState = true;
+        menuLogic(productModalState, document.querySelector('.product-modal'), 'active');
+    }
+    if(i.target.closest('[modal-product-close]')) {
+        productModalState = false;
+        menuLogic(productModalState, document.querySelector('.product-modal'), 'active');
+    }
+    if(screen.width < 800) {
+        allArrClear(navItem);
+        return i.target.closest('.nav-item') ? i.target.closest('.nav-item').classList.add('active') : allArrClear(navItem);
+    }
 })
 
 window.addEventListener('scroll', i => {
@@ -68,7 +82,8 @@ const i = document.getElementById('search-input');
 
 i.addEventListener('input', () => {
     inputVal.innerHTML = '';
-    fetch('http://localhost:8080/search.php', {
+    console.log(i.value);
+    fetch('https://wkusno-nsk.ru/search.php', {
         method: "POST",
         body: JSON.stringify({
             dataName: i.value
@@ -76,13 +91,14 @@ i.addEventListener('input', () => {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data);
         if(data.length > 0) {
             inputVal.classList.add('active');
             data.forEach(i => {
                 const html = `
                 <li class="nav-product">
                     <div class="nav-product__img">
-                        <img src="/static/${i.image}" alt="" loading=lazy>
+                        <img src="${i.image !== "" ? '/static/' + i.image : '/assets/img/logo/none2.png'}" alt="" loading=lazy>
                     </div>
                     <a href="/product/?id=${i.id}">${i.name}</a>
                 </li>`;
@@ -115,18 +131,34 @@ function menuLogic(state, m, className) {
     }
 }
 
-document.querySelector('.form').addEventListener('submit', (e) => {
-    sendForm('form-cons', '/formSend.php')
-})
+const form = document.querySelector('.form');
+const modalBox = document.querySelector('.modal-box');
+const productModal = document.querySelector('.product-modal__box');
 
-document.querySelector('.modal-box').addEventListener('submit', () => {
-    sendForm('form-modal', '/form_modal.php')
-})
+if(form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendForm('form-cons', 'https://wkusno-nsk.ru/formSend.php')
+    })
+}
+if(modalBox) {
+    modalBox.addEventListener('submit', (e) => {
+    e.preventDefault();
+        sendForm('form-modal', 'https://wkusno-nsk.ru/form_modal.php')
+    })
+}
+if(productModal) {
+    productModal.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendForm('product-form', "https://wkusno-nsk.ru/form_product.php")
+    })
+}
 
-async function sendForm(formName) {
+async function sendForm(formName, pathName) {
     const form = document.forms[formName];
+    console.log(form)
     const seqForm = new FormData(form);
-    await formSend(seqForm);
+    await formSend(seqForm, pathName);
     form.reset();
 }
 
@@ -151,4 +183,8 @@ function headerFix() {
             document.body.style.marginTop = '0px';
         }
     }
+}
+
+function allArrClear(arr) {
+    arr.forEach(i => i.classList.remove('active'));
 }

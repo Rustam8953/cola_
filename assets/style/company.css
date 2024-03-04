@@ -21,12 +21,14 @@
   padding: 24px 25px;
   background-color: #ECEFF1;
   font-size: 14px;
+  width: 100%;
 }
 .history-date {
   color: var(--theme-color);
   font-weight: 600;
   width: 150px;
   font-size: 26px;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,9 +64,11 @@
   }
   .history-value {
     padding: 15px;
+    width: 75%;
   }
   .history-date {
     padding: 0 15px;
     font-size: 24px;
+    width: 25%;
   }
 }

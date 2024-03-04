@@ -161,7 +161,7 @@
             justify-content: center;
             padding: 30px 20px;
             border-radius: 2px;
-            width: 60%;
+            width: 50%;
             border: 1px solid var(--border-grey);
             & img {
                 max-width: 100%;
@@ -215,6 +215,11 @@
     &-head {
         display: flex;
         gap: 20px;
+    }
+    &-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--dark-grey);
     }
 }
 

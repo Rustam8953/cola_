@@ -13,8 +13,8 @@
     }
     include_once dirname(__DIR__) . '/component/header.php';
 ?>
-<link rel="stylesheet" href="/assets/style/page.css">
-<link rel="stylesheet" href="/assets/style/partner.css">
+<link rel="stylesheet" href="/assets/style/page.css?<?php echo date('d:m:y:H:i:s'); ?>">
+<link rel="stylesheet" href="/assets/style/partner.css?<?php echo date('d:m:y:H:i:s'); ?>">
 <main class="main">
     <div class="page">
         <div class="page-box box">
@@ -50,7 +50,7 @@
                         } elseif($url == '/partner/geo/') {
                         ?>
                             <div class="geo">
-                                <p>Продукция компании «Запсибкола» представлена в торговых сетях и независимых розничных магазинах России и стран ближайшего зарубежья. Общее количество торговых точек, в которых можно приобрести наши газированные напитки, сокосодержащие напитки, квас или чистую воду, составляет более 5000.</p>
+                                <p>Продукция компании «ВКУСНО!» представлена в торговых сетях и независимых розничных магазинах России и стран ближайшего зарубежья. Общее количество торговых точек, в которых можно приобрести наши газированные напитки, сокосодержащие напитки, квас или чистую воду, составляет более 5000.</p>
                                 <br>
                                 <h3 class="geo-title">Мы представлены в следующих регионах:</h3>
                                 <br>

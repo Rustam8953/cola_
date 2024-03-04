@@ -2,9 +2,9 @@
     $page_title = "Контакты";
     include_once dirname(__DIR__) . '/component/header.php';
 ?>
-<link rel="stylesheet" href="/assets/style/ymaps.css">
-<link rel="stylesheet" href="/assets/style/contact.css">
-<link rel="stylesheet" href="/assets/style/banner.css">
+<link rel="stylesheet" href="/assets/style/ymaps.css?<?php echo date('d:m:y:H:i:s'); ?>">
+<link rel="stylesheet" href="/assets/style/contact.css?<?php echo date('d:m:y:H:i:s'); ?>">
+<link rel="stylesheet" href="/assets/style/banner.css?<?php echo date('d:m:y:H:i:s'); ?>">
 <main class="main">
     <div class="contact">
         <div class="contact-box box">
@@ -38,7 +38,7 @@
     </div>
 </main>
 <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=90aaac62-16fd-45a5-ad18-c9ff9afbc746" type="text/javascript"></script>
-<script src="/assets/script/ymaps.js"></script>
+<script src="/assets/script/ymaps.js?<?php echo date('d:m:y:H:i:s'); ?>"></script>
 
 <?php
     include_once dirname(__DIR__) . '/component/footer.php';
