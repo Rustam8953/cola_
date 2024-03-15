@@ -2,9 +2,9 @@
 
 class Database {
     private $host = "localhost";
-    private $db_name = "u2513090_def_user";
-    private $username = "u2513090_topBoss";
-    private $password = "hW9nK2pT2svV5eZ4";
+    private $db_name = "cola_db";
+    private $username = "root";
+    private $password = "";
     public $conn;
     public function getConnection()
     {

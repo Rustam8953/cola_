@@ -83,7 +83,7 @@ const i = document.getElementById('search-input');
 i.addEventListener('input', () => {
     inputVal.innerHTML = '';
     console.log(i.value);
-    fetch('https://wkusno-nsk.ru/search.php', {
+    fetch('http://localhost:8080/search.php', {
         method: "POST",
         body: JSON.stringify({
             dataName: i.value
@@ -138,19 +138,19 @@ const productModal = document.querySelector('.product-modal__box');
 if(form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        sendForm('form-cons', 'https://wkusno-nsk.ru/formSend.php')
+        sendForm('form-cons', "http://localhost:8080/form_product.php")
     })
 }
 if(modalBox) {
     modalBox.addEventListener('submit', (e) => {
     e.preventDefault();
-        sendForm('form-modal', 'https://wkusno-nsk.ru/form_modal.php')
+        sendForm('form-modal', "http://localhost:8080/form_product.php")
     })
 }
 if(productModal) {
     productModal.addEventListener('submit', (e) => {
         e.preventDefault();
-        sendForm('product-form', "https://wkusno-nsk.ru/form_product.php")
+        sendForm('product-form', "http://localhost:8080/form_product.php")
     })
 }
 
